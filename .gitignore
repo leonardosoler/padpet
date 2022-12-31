@@ -1,0 +1,5 @@
+.vscode/
+docker-compose.debug.yml
+imagem/migrations/
+envimagem/
+__pycache__/
