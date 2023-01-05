@@ -18,26 +18,26 @@ import MailIcon from '@mui/icons-material/Mail';
 
 
 export default function ButtonAppBar() {
-    const [state, setState] = React.useState({
-        top: false,
-        left: false,
-        bottom: false,
-        right: false,
-      });
-    
-      const toggleDrawer =
-        (anchor: Anchor, open: boolean) =>
-        (event: React.KeyboardEvent | React.MouseEvent) => {
-          if (
-            event.type === 'keydown' &&
-            ((React.KeyboardEvent).key === 'Tab' ||
-              (React.KeyboardEvent).key === 'Shift')
-          ) {
-            return;
-          }
-    
-          setState({ ...state, [anchor]: open });
-        };
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = 
+    (anchor: Anchor, open: boolean) =>
+      (event: React.KeyboardEvent | React.MouseEvent) => {
+        if (
+          event.type === 'keydown' &&
+          ((React.KeyboardEvent).key === 'Tab' ||
+            (React.KeyboardEvent).key === 'Shift')
+        ) {
+          return;
+        }
+
+        setState({ ...state, [anchor]: open });
+      };
 
 
   const list = (anchor: Anchor) => (
@@ -48,7 +48,7 @@ export default function ButtonAppBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {['Perfil', 'Padrinhos', 'Seu(s) pet(s)', 'Histórico de Doações'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -78,20 +78,20 @@ export default function ButtonAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-            <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }} 
-                onClick={toggleDrawer('left', true)}
-                >
-                    <MenuIcon />
-            </IconButton>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            onClick={toggleDrawer('left', true)}
+          >
+            <MenuIcon />
+          </IconButton>
 
-        <Drawer anchor='left' open={state['left']} onClose={toggleDrawer('left', false)}>    
+          <Drawer anchor='left' open={state['left']} onClose={toggleDrawer('left', false)}>
             {list('left')}
-        </ Drawer>
+          </ Drawer>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             PadPet
           </Typography>
