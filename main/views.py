@@ -8,7 +8,7 @@ from .forms import NewUserForm
 from django.contrib.auth import login
 from django.contrib import messages
 
-class HomePageView(ListView):
+class  HomePageView(ListView):
     model = Teste
     template_name = "home.html"
 
