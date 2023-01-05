@@ -10,3 +10,4 @@ class Teste (models.Model):
         managed = True
         db_table = 'teste'
         app_label = 'main'
+        

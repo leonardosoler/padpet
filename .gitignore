@@ -2,4 +2,4 @@
 docker-compose.debug.yml
 imagem/migrations/
 envimagem/
-__pycache__/
+/node_modules/
