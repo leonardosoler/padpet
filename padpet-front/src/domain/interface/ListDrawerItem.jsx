@@ -10,7 +10,7 @@ export default function ListDrawerItem(props)  {
         <div className="button-submit center">
             <List>
                 <ListItem key={props.text} disablePadding>
-                    <ListItemButton>
+                    <ListItemButton href={props.link}>
                     <ListItemIcon>
                         {props.icon}
                     </ListItemIcon>

@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid'; // Grid version 1
 import Grid2 from '@mui/material/Unstable_Grid2';
 import React from "react";
 import TextField from '@mui/material/TextField';
-import GridInputFormCenter from '../interface/grid_input_form_center';
+import GridInputFormCenter from '../interface/GridInputFormCenter';
 import ButtonSubmit from '../interface/ButtonSubmit';
 
 
