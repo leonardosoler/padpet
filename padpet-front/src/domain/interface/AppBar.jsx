@@ -7,15 +7,12 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-
+import PersonIcon from '@mui/icons-material/Person';
+import ListDrawerItem from './ListDrawerItem';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import PetsIcon from'@mui/icons-material/Pets';
 
 export default function ButtonAppBar() {
   const [state, setState] = React.useState({
@@ -47,36 +44,20 @@ export default function ButtonAppBar() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {['Perfil', 'Padrinhos', 'Seu(s) pet(s)', 'Histórico de Doações'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      
+      <ListDrawerItem text='Home' link='/' icon={<MailIcon/>}/>
+      <ListDrawerItem text='Perfil' link='/register-user' icon={<PersonIcon/>}/>
+      <ListDrawerItem text='Cadastro de usuário' icon={<PersonAddAltIcon />}/>
+      <ListDrawerItem text='Cadastro de PET' icon={<PetsIcon />}/>
+      <ListDrawerItem text='Cadastro de PET' icon={<PetsIcon />}/>
+      <ListDrawerItem text='Sair' icon={<PetsIcon />}/>
+      
       <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
     </Box>
   );
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box class="top-div">
+      <AppBar position="static" >
         <Toolbar>
           <IconButton
             size="large"

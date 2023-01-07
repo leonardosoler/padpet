@@ -1,11 +1,9 @@
-import ButtonAppBar from '../interface/app_bar'
+import ButtonAppBar from '../interface/AppBar'
 import img_head from '../../img/image10-1024x474.png'
 import { Card , CardContent, Typography} from '@mui/material';
 import Grid from '@mui/material/Grid'; // Grid version 1
 import Grid2 from '@mui/material/Unstable_Grid2';
-import React from "react";
-
-
+ import React from "react";
 
 function Home() {
     return (
