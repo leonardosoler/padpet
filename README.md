@@ -10,6 +10,7 @@ na mesma pasta rodar
 -> python manage.py makemigrations
 -> python manage.py migrate
 
+OBS>>> Rodar npm install localmente para termos o node_modules baixado no sistema.
 
 
 API
