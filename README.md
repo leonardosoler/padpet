@@ -1,4 +1,5 @@
-# PadPet - Animal Virtual Adoption
+# PadPet - Virtual Pet Adoption
+
  
 PadPet (Front: React /// Django with Docker)
 
