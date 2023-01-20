@@ -9,6 +9,7 @@ import Home from "./domain/home/index"
 import ButtonAppBar from './domain/interface/AppBar'
 import UserRegister from './domain/user/UserRegister'
 import UserProfile from "./domain/user/UserProfile";
+import PetRegister from "./domain/pet/PetRegister";
 function App() {
   //Rotas
   return(
@@ -18,7 +19,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/register-user" element={<UserRegister  />}/>
+        <Route path="/register-pet" element={<PetRegister  />}/>
         <Route path="/user-profile" element={<UserProfile  />}/>
+
       </Routes>
     </Router>
   </>
