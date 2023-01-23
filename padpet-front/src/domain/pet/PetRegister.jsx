@@ -8,11 +8,6 @@ import { Card, CardContent } from '@mui/material';
 
 function PetRegister() {
 
-
-
-
-
-
     return (
         <Box component="form"
          sx={{
