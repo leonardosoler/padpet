@@ -20,7 +20,7 @@ ENDPOINTS:
 Teste unitário:
 
 -> docker exec -it padpet_web_1 bash
--> python manage.py test padped
+-> python manage.py test padpet
  
 
 
