@@ -1,17 +1,16 @@
 # PadPet - Virtual Pet Adoption
 
  
-PadPet (Front: React /// Django with Docker)
+PadPet (Front: React /// Back: Django)
 
-Rodar o 
-docker-compose up --build
+Docker
+Rodar o comando:
+- docker-compose up --build
 
 na mesma pasta rodar 
--> docker exec -i -t imgapi_web_1 bash
+-> docker exec -i -t padpet_web_1 bash
 -> python manage.py makemigrations
 -> python manage.py migrate
-
-
 
 API
 ENDPOINTS:
