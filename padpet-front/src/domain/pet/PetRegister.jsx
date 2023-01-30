@@ -13,20 +13,20 @@ const baseURL = "http://localhost:8000/api/register/";
 
 function PetRegister() {
 
-    const [ainnnn, setPost] = React.useState(null);
+    // const [post_response, setPost] = React.useState(null);
 
-    useEffect(() => {
-        // POST request using axios inside useEffect React hook
-        const article = {
-            "username": "admin",
-            "email": "admin@bot.com",
-            "password": "Password@123"
-        };
-        axios.post(baseURL, article)
-            .then(response => setPost(response.data));
+    // useEffect(() => {
+    //     // POST request using axios inside useEffect React hook
+    //     const article = {
+    //         "username": "adminwewe",
+    //         "email": "admewwein@bot.com",
+    //         "password": "Password@123"
+    //     };
+    //     axios.post(baseURL, article)
+    //         .then(response => setPost(response.data));
     
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    }, []);
+    // // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    // }, []);
 
 
     return (
