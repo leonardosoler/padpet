@@ -4,9 +4,30 @@ import GridInputFormCenter from '../interface/GridInputFormCenter';
 import ButtonSubmit from '../interface/ButtonSubmit';
 import Box from '@mui/material/Box';
 import { Card, CardContent } from '@mui/material';
+import axios from "axios";
+import { useEffect } from 'react';
+
+
+const baseURL = "http://localhost:8000/api/register/";
 
 
 function PetRegister() {
+
+    const [ainnnn, setPost] = React.useState(null);
+
+    useEffect(() => {
+        // POST request using axios inside useEffect React hook
+        const article = {
+            "username": "admin",
+            "email": "admin@bot.com",
+            "password": "Password@123"
+        };
+        axios.post(baseURL, article)
+            .then(response => setPost(response.data));
+    
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, []);
+
 
     return (
         <Box component="form"
@@ -29,10 +50,13 @@ function PetRegister() {
                         <GridInputFormCenter id="outlined-basic" label="lista de casas" variant='outlined' style='spacing:50%'/>
                     </CardContent>
                 </Card>
+                {/* <button onClick={createPost}>Create Post</button> */}
 
                 <ButtonSubmit id="button-submit" value='Cadastrar' variant="contained" onClick=''/>
             </div>
+
         </Box>
+        
     );
  };
 
