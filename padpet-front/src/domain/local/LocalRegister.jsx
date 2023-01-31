@@ -6,12 +6,7 @@ import Box from '@mui/material/Box';
 import { Card, CardContent } from '@mui/material';
 
 
-function UserRegister() {
-
-
-
-
-
+function LocalRegister() {
 
     return (
         <Box component="form"
@@ -21,7 +16,7 @@ function UserRegister() {
             <div className="UserRegister formLabel" align='center' >
                 <Card  variant="outlined" sx={{ maxWidth: 1000, marginTop:5 }}>
                     <CardContent>
-                        <Typography align='center' variant='h4' >Cadastro de usuário</Typography>
+                        <Typography align='center' variant='h4' >Cadastro de locais</Typography>
                         <GridInputFormCenter id="outlined-basic" label="Nome Completo" variant='outlined' style='spacing:50%'/>
                         <GridInputFormCenter id="outlined-basic" label="Email" variant='outlined'/>
                         <GridInputFormCenter id="outlined-basic" label="Telefone" variant='outlined'/>
@@ -44,5 +39,5 @@ function UserRegister() {
     );
  };
 
-export default UserRegister;
+export default LocalRegister;
     

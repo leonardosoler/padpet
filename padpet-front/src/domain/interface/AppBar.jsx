@@ -45,9 +45,13 @@ export default function ButtonAppBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >      
       <ListDrawerItem text='Home' link='/' icon={<MailIcon/>}/>
+      <ListDrawerItem text='Feed' link='/user-profile' icon={<PersonIcon/>}/>
       <ListDrawerItem text='Perfil' link='/user-profile' icon={<PersonIcon/>}/>
-      <ListDrawerItem text='Cadastro de usuário' link='/register-user' icon={<PersonAddAltIcon />}/>
-      <ListDrawerItem text='Cadastro de PET' icon={<PetsIcon />}/>
+      <ListDrawerItem text='Perfil' link='/register-user' icon={<PersonIcon/>}/>
+      <ListDrawerItem text='PET' link='/register-pet' icon={<PetsIcon />}/>
+      <ListDrawerItem text='Locais' link='/register-local' icon={<PetsIcon />}/>
+      <ListDrawerItem text='Pagamentos' link='/register-pet' icon={<PetsIcon />}/>
+      <ListDrawerItem text='Mensagens' link='/register-pet' icon={<PetsIcon />}/>
       <ListDrawerItem text='Sair' icon={<PetsIcon />}/>
       
       <Divider />

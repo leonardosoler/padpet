@@ -10,21 +10,92 @@ function Home() {
         <div className="App">
             <img src={img_head} alt="Logo" style={{ 'width':'100%'}}/>
             <Grid container spacing={2}>
-                <Grid xs={6}>
-                    <Card >
-                        <CardContent>
-                                <Typography>Teste</Typography>
+                <Grid xs={3}>
+                    <Card sx={{maxWidth:600}}  variant="outlined">
+                        <CardContent >
+                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                Word of the Day
+                            </Typography>
+                            <Typography variant="h5" component="div">
+                                teste
+                            </Typography>
+                            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                                adote um cachorro, um gato, um coelho, você não tem limite de pets que você poderá ajudar
+                            </Typography>                        
                         </CardContent> 
+
                     </Card>          
                 </Grid>
-                <Grid xs={6}>    
+                <Grid xs={3}>    
                     <Card sx={{ minWidth: 275 }}>
                         <CardContent>
-                                <Typography> Teste 2 </Typography>
+                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                Word of the Day
+                            </Typography>
+                            <Typography variant="h5" component="div">
+                                teste
+                            </Typography>
+                            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                                adote um cachorro, um gato, um coelho, você não tem limite de pets que você poderá ajudar
+                            </Typography>                           
                         </CardContent> 
                     </Card>
                 </Grid>
-            </Grid>        
+                <Grid xs={3}>    
+                    <Card sx={{ minWidth: 275 }}>
+                        <CardContent>
+                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                Word of the Day
+                            </Typography>
+                            <Typography variant="h5" component="div">
+                                teste
+                            </Typography>
+                            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                                adote um cachorro, um gato, um coelho, você não tem limite de pets que você poderá ajudar
+                            </Typography>                         
+                        </CardContent> 
+                    </Card>
+                </Grid>
+                <Grid xs={3}>    
+                    <Card sx={{ minWidth: 275 }}>
+                    <CardContent>
+                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                Word of the Day
+                            </Typography>
+                            <Typography variant="h5" component="div">
+                                teste
+                            </Typography>
+                            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                                adote um cachorro, um gato, um coelho, você não tem limite de pets que você poderá ajudar
+                            </Typography>                         
+                        </CardContent> 
+                    </Card>
+                </Grid>
+            </Grid>   
+            <Grid container>
+                <Grid item>
+                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                        Word of the Day
+                    </Typography>
+                    <Typography variant="h5" component="div">
+                        teste
+                    </Typography>
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        adote um cachorro, um gato, um coelho, você não tem limite de pets que você poderá ajudar
+                    </Typography>                         
+                </Grid>
+                <Grid item>
+                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                        Word of the Day
+                    </Typography>
+                    <Typography variant="h5" component="div">
+                        teste
+                    </Typography>
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        adote um cachorro, um gato, um coelho, você não tem limite de pets que você poderá ajudar
+                    </Typography>                         
+                </Grid>
+            </Grid>     
         </div>
     );
  };
