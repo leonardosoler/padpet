@@ -6,7 +6,7 @@ PadPet (Front: React /// Back: Django)
 
 Figma do projeto = https://www.figma.com/file/lUCRbCHje6S5ya9lJi7BPm/Padpet?node-id=0%3A1&t=CT8pJ0YEL5bue5nn-1
 
-Modelagem da database = 
+Modelagem da database = https://dbdiagram.io/home
 
 --------------------------
 Docker
