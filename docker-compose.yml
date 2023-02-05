@@ -2,6 +2,18 @@ version: '2.2'
 
 services:
 
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    expose:
+      - 5432
+    networks:
+      - djangonetwork
+
   web:
     build: .
     command: bash -c "python manage.py runserver 0.0.0.0:8000"
@@ -22,18 +34,26 @@ services:
       - "3000:3000"
     volumes:
       - ./padpet-front:/padpet-front
-
-  db:
-    image: postgres:13
+  pg-padpet:
+    restart: always
+    image: dpage/pgadmin4
+    container_name: pg-padpet
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - "VIRTUAL_HOST=pgadmin4"
+      - "VIRTUAL_PORT=5050"
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com.br
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_PORT=5050
+      - SERVER_MODE=True
+      - DEFAULT_SERVER='0.0.0.0'
     expose:
-      - 5432
-    networks:
-      - djangonetwork
+      - "5050"
+    links:
+      - db
+    # volumes:
+      # - pgadmin_wdata:/var/lib/storage
+      # - ./pgadmin_storage:/var/lib/pgadmin/storage
+
 volumes:
   postgres_data:
 networks:
