@@ -9,8 +9,8 @@ services:
       - POSTGRES_PASSWORD=postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    expose:
-      - 5432
+    ports:
+      - "5432:80"
     networks:
       - djangonetwork
 
@@ -39,17 +39,15 @@ services:
     image: dpage/pgadmin4
     container_name: pg-padpet
     environment:
-      - "VIRTUAL_HOST=pgadmin4"
-      - "VIRTUAL_PORT=5050"
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com.br
       - PGADMIN_DEFAULT_PASSWORD=admin
-      - PGADMIN_LISTEN_PORT=5050
-      - SERVER_MODE=True
-      - DEFAULT_SERVER='0.0.0.0'
-    expose:
-      - "5050"
-    links:
+    ports:
+      - "5050:80"
+    depends_on:
       - db
+
+    networks:
+    - djangonetwork
     # volumes:
       # - pgadmin_wdata:/var/lib/storage
       # - ./pgadmin_storage:/var/lib/pgadmin/storage
