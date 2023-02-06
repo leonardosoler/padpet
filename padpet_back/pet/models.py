@@ -1,8 +1,8 @@
 from django.db import models
 # from main.models import  Teste
 # Create your models here.
-from main.models import RegitryBaseModel
-class Race (RegitryBaseModel):
+from main.models import BaseModel
+class Race (BaseModel):
     id = models.AutoField(primary_key=True)
     name = models.CharField(db_column='name', max_length=255)
 
@@ -14,7 +14,7 @@ class Race (RegitryBaseModel):
         db_table = 'race'
         app_label = 'pet'
 
-class Specie (RegitryBaseModel):
+class Specie (BaseModel):
     id = models.AutoField(primary_key=True)
     name = models.CharField(db_column='name', max_length=255)
     race = models.ManyToManyField(Race, verbose_name="race", related_name="specie_race_set")
@@ -27,7 +27,7 @@ class Specie (RegitryBaseModel):
         db_table = 'specie'
         app_label = 'pet'
 
-class Pet (RegitryBaseModel):
+class Pet (BaseModel):
     id = models.AutoField(primary_key=True)
     name = models.CharField(db_column='name', max_length=255)
     # specie = models.ForeignKey(Specie, verbose_name="specie", null=True, on_delete=models.SET_NULL, related_name="specie")

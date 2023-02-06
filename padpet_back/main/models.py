@@ -278,7 +278,7 @@ class BaseUserInteraction(StateMachineModel):
         abstract = True
         app_label = 'main'
 
-class RegitryBaseModel(models.Model):
+class BaseModel(models.Model):
     create_date = models.CharField(db_column='create_date', max_length=255)
     submitted_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     
