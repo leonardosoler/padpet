@@ -15,9 +15,12 @@ class Address(BaseModel):
 class LocalData(BaseModel):
 
     id = models.AutoField(primary_key=True)
+    name = models.CharField(db_column='state', max_length=255, verbose_name =("Nome"))
+    email = models.EmailField(verbose_name=("Email"))
     address = models.ForeignKey(Address, verbose_name=("Endereço"), on_delete=models.CASCADE)
     user = models.OneToOneField(User, verbose_name=("Usuário associado"), related_name="manager", on_delete=models.CASCADE)
     pet = models.ForeignKey(Pet, verbose_name=("Pets"), on_delete=models.CASCADE)
-
+    telephone = models.CharField(verbose_name="Telefone", max_length=11)
+    cnpj = models.IntegerField(verbose_name=("CPF"))
     class Meta:
         app_label = 'local'

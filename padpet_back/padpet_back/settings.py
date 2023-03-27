@@ -96,7 +96,7 @@ DATABASES = {
 
     }
 }
-
+PYDEVD_DISABLE_FILE_VALIDATION=1
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 

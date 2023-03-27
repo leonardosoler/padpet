@@ -1,17 +1,12 @@
 import Typography from '@mui/material/Typography';
 import React from "react";
-import GridInputFormCenter from '../interface/GridInputFormCenter';
-import ButtonSubmit from '../interface/ButtonSubmit';
+import GridInputFormCenter from '../../interface/GridInputFormCenter';
+import ButtonSubmit from '../../interface/ButtonSubmit';
 import Box from '@mui/material/Box';
 import { Card, CardContent } from '@mui/material';
 
 
 function UserRegister() {
-
-
-
-
-
 
     return (
         <Box component="form"

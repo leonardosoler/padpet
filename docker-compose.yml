@@ -16,11 +16,16 @@ services:
 
   web:
     build: .
-    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python -R -Xfrozen_modules=off manage.py runserver 0.0.0.0:8000"
+    restart: always
+    environment:
+      - PYTHONUNBUFFERED=1
     volumes:
       - ./padpet_back:/padpet_back
+    expose:
+      - "8000"
     ports:
-      - "8000:8000"
+      - "5678:5678"
     depends_on:
       - db
     links:

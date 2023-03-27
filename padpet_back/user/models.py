@@ -7,7 +7,7 @@ class UserProfileInfos(BaseModel):
     id = models.AutoField(primary_key=True)
     full_name = models.CharField(db_column='full_name', max_length=255, verbose_name =("Nome completo"))
     document = models.IntegerField(verbose_name=("CPF"))
-    tel = models.CharField(verbose_name="Telefone", max_length=11)
+    telephone = models.CharField(verbose_name="Telefone", max_length=11)
     pet = models.ManyToManyField(Pet, verbose_name=("Pets"))
     local = models.ManyToManyField(LocalData, verbose_name=("Local"))
     email = models.EmailField(verbose_name=("Email"))

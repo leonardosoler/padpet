@@ -5,12 +5,13 @@ import {
   Route,
 } from "react-router-dom";
 import "./index.css";
-import Home from "./domain/home/index"
-import ButtonAppBar from './domain/interface/AppBar'
-import UserRegister from './domain/user/UserRegister'
-import UserProfile from "./domain/user/UserProfile";
-import PetRegister from "./domain/pet/PetRegister";
-import LocalRegister from "./domain/local/LocalRegister";
+import Home from "./pages/home/index"
+import ButtonAppBar from './interface/AppBar';
+import UserRegister from './pages/user/UserRegister';
+import UserProfile from "./pages/user/UserProfile";
+import PetRegister from "./pages/pet/PetRegister";
+import LocalRegister from "./pages/local/LocalRegister";
+
 function App() {
   //Rotas
   return(

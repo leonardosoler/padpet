@@ -1,4 +1,4 @@
-import ButtonAppBar from '../interface/AppBar'
+import ButtonAppBar from '../../interface/AppBar'
 import img_head from '../../img/image10-1024x474.png'
 import { Card , CardContent, Typography} from '@mui/material';
 import Grid from '@mui/material/Grid'; // Grid version 1

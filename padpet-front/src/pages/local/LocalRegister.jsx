@@ -1,12 +1,17 @@
 import Typography from '@mui/material/Typography';
-import React from "react";
-import GridInputFormCenter from '../interface/GridInputFormCenter';
-import ButtonSubmit from '../interface/ButtonSubmit';
+import React , {useState} from "react";
+import GridInputFormCenter from '../../interface/GridInputFormCenter';
+import ButtonSubmit from '../../interface/ButtonSubmit';
 import Box from '@mui/material/Box';
 import { Card, CardContent } from '@mui/material';
 
-
 function LocalRegister() {
+    const [local_name, set_local_name] = useState([])
+    const [local, set_local] = useState([])
+
+    const handleForm = async () => {
+        set_local([])
+    }
 
     return (
         <Box component="form"
@@ -33,7 +38,7 @@ function LocalRegister() {
                     </CardContent>
                 </Card>
 
-                <ButtonSubmit id="button-submit" value='Cadastrar' variant="contained" onClick=''/>
+                <ButtonSubmit id="button-submit" value='Cadastrar' variant="contained" onClick={handleForm}/>
             </div>
         </Box>
     );
