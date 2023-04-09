@@ -1,6 +1,7 @@
 import Typography from '@mui/material/Typography';
 import React from "react";
 import GridInputFormCenter from '../interface/GridInputFormCenter';
+import GridSelectFormCenter from '../interface/GridSelectFormCenter';
 import ButtonSubmit from '../interface/ButtonSubmit';
 import Box from '@mui/material/Box';
 import { Card, CardContent } from '@mui/material';
@@ -26,7 +27,7 @@ function PetRegister() {
     useEffect(() => {
         let a = Api.SpeciesListGet(setSpeciesOptions)
         let b = Api.RacesListGet(setRacesOptions)
-      }, ['sua-api.com/options']);
+    }, ['sua-api.com/options']);
 
 
     const handlerPostPet = async () => {
@@ -54,30 +55,17 @@ function PetRegister() {
                             style='spacing:50%'
                             onChange={(e) => setName(e.target.value)}
                         />
-{/* 
-                        <GridInputFormCenter id="outlined-basic"
+                        <GridSelectFormCenter id="outlined-basic"
                             label="Espécie"
                             variant='outlined'
-                            onChange={setSpecie} />
- */}
-                         <FormControl fullWidth>
-                            <InputLabel id="select-label">Selecione</InputLabel>
-                            <Select labelId="select-label" onChange={(e) => setRace(e.target.value)}>
-                                {speciesOptions.map((option, index) => (
-                                    <MenuItem key={index} value={option.id}>{option.name}</MenuItem>
-                                ))}
-                            </Select>
-                        {/* <GridInputFormCenter id="outlined-basic"
+                            onChange={setSpecie}
+                            options={speciesOptions ? speciesOptions : []} />
+
+                        <GridSelectFormCenter id="outlined-basic"
                             label="Raça"
                             variant='outlined'
-                            onChange={setRace} /> */}
-                            <InputLabel id="select-label">Selecione</InputLabel>
-                            <Select labelId="select-label" onChange={(e) => setRace(e.target.value)}>
-                                {racesOptions.map((option, index) => (
-                                    <MenuItem key={index} value={option.id}>{option.name}</MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl> 
+                            onChange={setRace}
+                            options={racesOptions} />
 
                         <GridInputFormCenter id="outlined-basic"
                             label="Idade"
