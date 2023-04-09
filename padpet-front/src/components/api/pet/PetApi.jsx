@@ -29,6 +29,17 @@ class Api {
           console.log(error);
         });
     }
+    RacesListGet = (setRacesOptions) => {
+
+        const response = axios.get('http://localhost:8000/api/races-list/')
+        .then(response => {
+            console.log(response.data)
+            setRacesOptions(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
     
 }
 

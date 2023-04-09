@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from pet.models import Pet, Specie
+from pet.models import Pet, Specie, Race
 
 class PetSerializer(serializers.ModelSerializer):
     class Meta:
@@ -38,4 +38,9 @@ class SpeciesSerializer(serializers.ModelSerializer):
         model = Specie
         fields = ('id', 'name', 'race')
 
+
+class RacesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Race
+        fields = ('id', 'name')
 

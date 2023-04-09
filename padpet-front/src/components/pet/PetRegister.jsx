@@ -7,6 +7,7 @@ import { Card, CardContent } from '@mui/material';
 import axios from "axios";
 import { useEffect } from 'react';
 import Api from '../api/pet/PetApi'
+import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 
 
 
@@ -20,20 +21,20 @@ function PetRegister() {
     const [race, setRace] = React.useState(0);
     const [age, setAge] = React.useState(11);
     const [speciesOptions, setSpeciesOptions] = React.useState([]);
-    const [raceOptions, setRaceOptions] = React.useState([]);
+    const [racesOptions, setRacesOptions] = React.useState([]);
 
     useEffect(() => {
-        Api.SpeciesListGet(setSpeciesOptions)
-      
+        let a = Api.SpeciesListGet(setSpeciesOptions)
+        let b = Api.RacesListGet(setRacesOptions)
       }, ['sua-api.com/options']);
 
 
     const handlerPostPet = async () => {
         const pet_data = {
-            "name": name.target.value,
-            "specie": specie.target.value,
-            "race": race.target.value,
-            "age": age.target.value,
+            "name": name,
+            "specie": specie,
+            "race": race,
+            "age": age,
         };
         Api.PetRegisterPost(pet_data)
     }
@@ -51,29 +52,39 @@ function PetRegister() {
                             label="Nome"
                             variant='outlined'
                             style='spacing:50%'
-                            onChange={setName}
+                            onChange={(e) => setName(e.target.value)}
                         />
-
+{/* 
                         <GridInputFormCenter id="outlined-basic"
                             label="Espécie"
                             variant='outlined'
                             onChange={setSpecie} />
-
-                        <GridInputFormCenter id="outlined-basic"
+ */}
+                         <FormControl fullWidth>
+                            <InputLabel id="select-label">Selecione</InputLabel>
+                            <Select labelId="select-label" onChange={(e) => setRace(e.target.value)}>
+                                {speciesOptions.map((option, index) => (
+                                    <MenuItem key={index} value={option.id}>{option.name}</MenuItem>
+                                ))}
+                            </Select>
+                        {/* <GridInputFormCenter id="outlined-basic"
                             label="Raça"
                             variant='outlined'
-                            onChange={setRace} />
+                            onChange={setRace} /> */}
+                            <InputLabel id="select-label">Selecione</InputLabel>
+                            <Select labelId="select-label" onChange={(e) => setRace(e.target.value)}>
+                                {racesOptions.map((option, index) => (
+                                    <MenuItem key={index} value={option.id}>{option.name}</MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl> 
 
                         <GridInputFormCenter id="outlined-basic"
                             label="Idade"
                             variant='outlined'
-                            onChange={setAge}
+                            onChange={(e) => setAge(e.target.value)}
                         />
-                        <select>
-                            {speciesOptions.map((option, index) => (
-                                <option key={index} value={option.name}>{option.name}</option>
-                            ))}     
-                        </select>              
+
                 </CardContent>
                 </Card>
                 <Card variant="outlined" sx={{ maxWidth: 1000, marginTop: 5 }}>
