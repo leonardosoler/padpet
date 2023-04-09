@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import { Card, CardContent } from '@mui/material';
 import axios from "axios";
 import { useEffect } from 'react';
-
+import Api from '../api/pet/PetApi'
 
 
 
@@ -19,6 +19,14 @@ function PetRegister() {
     const [specie, setSpecie] = React.useState(1);
     const [race, setRace] = React.useState(0);
     const [age, setAge] = React.useState(11);
+    const [speciesOptions, setSpeciesOptions] = React.useState([]);
+    const [raceOptions, setRaceOptions] = React.useState([]);
+
+    useEffect(() => {
+        Api.SpeciesListGet(setSpeciesOptions)
+      
+      }, ['sua-api.com/options']);
+
 
     const handlerPostPet = async () => {
         const pet_data = {
@@ -27,9 +35,7 @@ function PetRegister() {
             "race": race.target.value,
             "age": age.target.value,
         };
-        const response = await axios.post(baseURL, pet_data)
-            .then(response => setPet(response.data));
-        // empty dependency array means this effect will only run once (like componentDidMount in classes)
+        Api.PetRegisterPost(pet_data)
     }
 
     return (
@@ -63,7 +69,12 @@ function PetRegister() {
                             variant='outlined'
                             onChange={setAge}
                         />
-                    </CardContent>
+                        <select>
+                            {speciesOptions.map((option, index) => (
+                                <option key={index} value={option.name}>{option.name}</option>
+                            ))}     
+                        </select>              
+                </CardContent>
                 </Card>
                 <Card variant="outlined" sx={{ maxWidth: 1000, marginTop: 5 }}>
                     <CardContent>

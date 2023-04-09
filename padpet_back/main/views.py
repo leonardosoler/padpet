@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.contrib.auth import login
 
 from main.models import User
-from .serializers import UserSerializer, RegisterSerializer, PetSerializer
+from pet.models import Specie
+from .serializers import UserSerializer, RegisterSerializer, PetSerializer, SpeciesSerializer
 # KNOX
 from knox.views import LoginView as KnoxLoginView
 from knox.models import AuthToken
@@ -11,7 +12,7 @@ from knox.models import AuthToken
 from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 from rest_framework.authtoken.serializers import AuthTokenSerializer
-
+from django.http import HttpResponse 
 
 class PetRegisterView(generics.GenericAPIView):
     serializer_class = PetSerializer
@@ -21,7 +22,6 @@ class PetRegisterView(generics.GenericAPIView):
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        print(serializer)
         pet = serializer.save()
         return Response({
             "pet": PetSerializer(pet, context=self.get_serializer_context()).data,
@@ -42,6 +42,19 @@ class RegisterAPI(generics.GenericAPIView):
         })
 
 
+
+class SpeciesListView(generics.GenericAPIView):
+    queryset = Specie.objects.all()
+    # Define o serializer que será usado para serializar os dados
+    serializer_class = SpeciesSerializer
+    
+    def get(self, request, *args, **kwargs):
+        # Recupera todos os objetos do modelo
+        queryset = self.get_queryset()
+        # Serializa todos os objetos recuperados
+        serializer = self.get_serializer(queryset, many=True)
+        # Retorna a representação em JSON da lista de objetos serializados
+        return Response(serializer.data)
 class LoginAPI(KnoxLoginView):
     permission_classes = (permissions.AllowAny,)
 

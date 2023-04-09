@@ -30,10 +30,10 @@ class Specie (BaseModel):
 class Pet (BaseModel):
     id = models.AutoField(primary_key=True)
     name = models.CharField(db_column='name', max_length=255)
-    # specie = models.ForeignKey(Specie, verbose_name="specie", null=True, on_delete=models.SET_NULL, related_name="specie")
-    # race = models.ManyToManyField(Race, verbose_name="race", related_name="pet_race_set")
-    specie = models.CharField(db_column='specie', max_length=255)
-    race = models.CharField(db_column='race', max_length=255)
+    specie = models.ForeignKey(Specie, verbose_name="specie", null=True, on_delete=models.SET_NULL, related_name="specie")
+    race = models.ForeignKey(Race, verbose_name="race", null=True, on_delete=models.SET_NULL, related_name="pet_race_set")
+    # specie = models.CharField(db_column='specie', max_length=255)
+    # race = models.CharField(db_column='race', max_length=255)
     age = models.CharField(db_column='age', max_length=255)
     
     def __str__(self):
