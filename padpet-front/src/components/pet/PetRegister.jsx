@@ -14,9 +14,7 @@ import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 
 
 function PetRegister() {
-    const baseURL = "http://localhost:8000/api/pet-register/";
 
-    const [pet, setPet] = React.useState(null);
     const [name, setName] = React.useState('Teste');
     const [specie, setSpecie] = React.useState(1);
     const [race, setRace] = React.useState(0);
@@ -25,9 +23,10 @@ function PetRegister() {
     const [racesOptions, setRacesOptions] = React.useState([]);
 
     useEffect(() => {
-        let a = Api.SpeciesListGet(setSpeciesOptions)
-        let b = Api.RacesListGet(setRacesOptions)
-    }, ['sua-api.com/options']);
+            const species_list = Api.SpeciesListGet(setSpeciesOptions)
+            const races_list = Api.RacesListGet(setRacesOptions)
+        }, [])
+        
 
 
     const handlerPostPet = async () => {
