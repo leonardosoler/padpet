@@ -13,7 +13,7 @@ export default function GridSelectFormCenter(props) {
                     {/* <TextField id={props.id} label={props.label} variant={props.variant} onChange={props.onChange}  style={{'width':'100%'}}/> */}
                     <FormControl fullWidth>
                         <InputLabel id="select-label">Selecione</InputLabel>
-                        <Select labelId="select-label" onChange={props.onChange((e) => (e.target ? e.target.value: 0 ))} variant={props.variant}>
+                        <Select labelId="select-label" onChange={(e) => props.onChange(e.target.value)} variant={props.variant}>
                             {props.options.length > 0 ?
                                 props.options.map((option, index) => (
                                     <MenuItem key={index} value={option.id}>{option.name}</MenuItem>

@@ -40,7 +40,18 @@ class Api {
           console.log(error);
         });
     }
-    
+
+    PetListGet = (setPetOptions) => {
+
+        const response = axios.get('http://localhost:8000/api/pet-list/')
+        .then(response => {
+            console.log(response.data)
+            setPetOptions(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
 }
 
 

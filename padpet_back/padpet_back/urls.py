@@ -1,7 +1,7 @@
 #IMPORTS
 from django.contrib import admin
 from django.urls import path, include
-from main.views import RegisterAPI, LoginAPI, PetRegisterView, SpeciesListView, RacesListView
+from main.views import RegisterAPI, LoginAPI, PetRegisterView, SpeciesListView, RacesListView, PetListView
 ## KNOX
 from knox import views as knox_views
 ## REST
@@ -22,6 +22,7 @@ urlpatterns = [
     # GET
     path('api/species-list/', SpeciesListView.as_view(), name='species-list'),
     path('api/races-list/', RacesListView.as_view(), name='races-list'),
+    path('api/pet-list/', PetListView.as_view(), name='pet-list'),
     path('api/login/', LoginAPI.as_view(), name='login'),
     # POST/GET
     path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),

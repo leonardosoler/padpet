@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth import login
 
 from main.models import User
-from pet.models import Specie, Race
+from pet.models import Specie, Race, Pet
 from .serializers import UserSerializer, RegisterSerializer, PetSerializer, SpeciesSerializer, RacesSerializer
 # KNOX
 from knox.views import LoginView as KnoxLoginView
@@ -14,6 +14,8 @@ from rest_framework.response import Response
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from django.http import HttpResponse 
 
+
+##POST
 class PetRegisterView(generics.GenericAPIView):
     serializer_class = PetSerializer
     def get(self, request):
@@ -28,7 +30,6 @@ class PetRegisterView(generics.GenericAPIView):
             "token": str(request.auth)
         })
 
-# Register API
 class RegisterAPI(generics.GenericAPIView):
     serializer_class = RegisterSerializer
 
@@ -40,11 +41,21 @@ class RegisterAPI(generics.GenericAPIView):
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
             "token": AuthToken.objects.create(user)[1]
         })
+        
+class LoginAPI(KnoxLoginView):
+    permission_classes = (permissions.AllowAny,)
 
+    def post(self, request, format=None):
+        serializer = AuthTokenSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        login(request, user)
+        return super(LoginAPI, self).post(request, format=None)
 
+## GET
 
 class SpeciesListView(generics.GenericAPIView):
-    queryset = Specie.objects.all()
+    queryset = Specie.objects.all().order_by('pk')
     # Define o serializer que será usado para serializar os dados
     serializer_class = SpeciesSerializer
     
@@ -58,25 +69,21 @@ class SpeciesListView(generics.GenericAPIView):
     
 
 class RacesListView(generics.GenericAPIView):
-    queryset = Race.objects.all()
-    # Define o serializer que será usado para serializar os dados
+    queryset = Race.objects.all().order_by('pk')
     serializer_class = RacesSerializer
     
     def get(self, request, *args, **kwargs):
-        # Recupera todos os objetos do modelo
         queryset = self.get_queryset()
-        # Serializa todos os objetos recuperados
         serializer = self.get_serializer(queryset, many=True)
-        # Retorna a representação em JSON da lista de objetos serializados
         return Response(serializer.data)
         
     
-class LoginAPI(KnoxLoginView):
-    permission_classes = (permissions.AllowAny,)
-
-    def post(self, request, format=None):
-        serializer = AuthTokenSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        login(request, user)
-        return super(LoginAPI, self).post(request, format=None)
+class PetListView(generics.GenericAPIView):
+    queryset = Pet.objects.all().order_by('-pk')
+    serializer_class = PetSerializer
+    
+    def get(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+        

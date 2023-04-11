@@ -44,3 +44,8 @@ class RacesSerializer(serializers.ModelSerializer):
         model = Race
         fields = ('id', 'name')
 
+
+class PetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pet
+        fields = ('id', 'name', 'specie', 'race', 'age')
