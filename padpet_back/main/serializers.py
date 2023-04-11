@@ -1,5 +1,19 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from pet.models import Pet, Specie, Race
+
+class PetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pet
+        fields = ('id', 'name', 'race','specie', 'age')
+
+    def create(self, validated_data):
+        pet = Pet.objects.create(name = validated_data['name'], 
+                                  race = validated_data['race'], 
+                                  specie = validated_data['specie'],
+                                  age = validated_data['age'])
+
+        return pet
 
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):
@@ -18,3 +32,20 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(validated_data['username'], validated_data['email'], validated_data['password'])
 
         return user
+
+class SpeciesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Specie
+        fields = ('id', 'name', 'race')
+
+
+class RacesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Race
+        fields = ('id', 'name')
+
+
+class PetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pet
+        fields = ('id', 'name', 'specie', 'race', 'age')

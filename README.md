@@ -1,9 +1,10 @@
-# PadPet - Virtual Pet Adoption
 
- 
-PadPet (Front: React /// Back: Django)
+# PadPet - Animal Virtual Adoption
+
+PadPet (Front: React /// Django with Docker)
+
 --------------------------
-
+=======
 Figma do projeto = https://www.figma.com/file/lUCRbCHje6S5ya9lJi7BPm/Padpet?node-id=0%3A1&t=CT8pJ0YEL5bue5nn-1
 
 Modelagem da database = https://dbdiagram.io/home
@@ -19,7 +20,11 @@ na mesma pasta rodar
 -> python manage.py migrate
 
 OBS>>> Rodar npm install localmente para termos o node_modules baixado no sistema.
-=======
+
+Ver a modelagem dos dados:
+
+Figma do front:
+
 API
 ENDPOINTS:
 

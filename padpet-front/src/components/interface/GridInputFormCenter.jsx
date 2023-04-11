@@ -9,7 +9,7 @@ export default function GridInputFormCenter(props)  {
             <Grid item xs={2}>
             </Grid>
             <Grid item xs={8}>
-                <TextField id={props.id} label={props.label} variant={props.variant} onClick={props.onClick}  style={{'width':'100%'}}/>
+                <TextField id={props.id} label={props.label} variant={props.variant} onChange={props.onChange}  style={{'width':'100%'}}/>
             </Grid>
             <Grid item xs={2}>
             </Grid>
