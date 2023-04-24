@@ -36,13 +36,13 @@ class RegisterSerializer(serializers.ModelSerializer):
 class SpeciesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Specie
-        fields = ('id', 'name', 'race')
+        fields = ('id', 'name')
 
 
 class RacesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Race
-        fields = ('id', 'name')
+        fields = ('id', 'name', 'specie')
 
 
 class PetSerializer(serializers.ModelSerializer):
