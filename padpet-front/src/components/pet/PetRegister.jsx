@@ -5,19 +5,14 @@ import GridSelectFormCenter from '../interface/GridSelectFormCenter';
 import ButtonSubmit from '../interface/ButtonSubmit';
 import Box from '@mui/material/Box';
 import { Card, CardContent } from '@mui/material';
-import axios from "axios";
 import { useEffect } from 'react';
 import Api from '../api/pet/PetApi'
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-
-
-
 
 function PetRegister() {
 
     const [name, setName] = React.useState('Teste');
-    const [specie, setSpecie] = React.useState(1);
-    const [race, setRace] = React.useState(0);
+    const [specie, setSpecie] = React.useState();
+    const [race, setRace] = React.useState();
     const [age, setAge] = React.useState(11);
     const [speciesOptions, setSpeciesOptions] = React.useState([]);
     const [racesOptions, setRacesOptions] = React.useState([]);
@@ -27,8 +22,6 @@ function PetRegister() {
             const races_list = Api.RacesListGet(setRacesOptions)
         }, [])
         
-
-
     const handlerPostPet = async () => {
         const pet_data = {
             "name": name,
@@ -45,8 +38,7 @@ function PetRegister() {
                 '& .MuiTextField-root': { m: 2 },
             }}>
             <div className="UserRegister formLabel" align='center' >
-                <Card variant="outlined" sx={{ maxWidth: 1000, marginTop: 5 }}>
-                    <CardContent>
+
                         <Typography align='center' variant='h4' >Cadastro de Pet</Typography>
                         <GridInputFormCenter id="outlined-basic"
                             label="Nome"
@@ -58,22 +50,22 @@ function PetRegister() {
                             label="Espécie"
                             variant='outlined'
                             onChange={setSpecie}
-                            options={speciesOptions ? speciesOptions : []} />
+                            state={specie}
+                            options={speciesOptions ? speciesOptions : []} 
+                            inputLabel="Selecione uma espécie" />
 
                         <GridSelectFormCenter id="outlined-basic"
                             label="Raça"
                             variant='outlined'
                             onChange={setRace}
-                            options={racesOptions} />
+                            options={racesOptions} 
+                            inputLabel="Selecione uma raça" />
 
                         <GridInputFormCenter id="outlined-basic"
                             label="Idade"
                             variant='outlined'
                             onChange={(e) => setAge(e.target.value)}
                         />
-
-                </CardContent>
-                </Card>
                 <Card variant="outlined" sx={{ maxWidth: 1000, marginTop: 5 }}>
                     <CardContent>
                         <Typography align='center' variant='h4' >Vincular a uma casa de adoção</Typography>

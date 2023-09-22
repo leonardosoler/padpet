@@ -18,6 +18,7 @@ class Api {
         const response = axios.post(baseURL, data)
             .then(response => console.log(response.data));
     }
+
     SpeciesListGet = (setSpeciesOptions) => {
 
         const response = axios.get('http://localhost:8000/api/species-list/')
@@ -29,6 +30,7 @@ class Api {
           console.log(error);
         });
     }
+    
     RacesListGet = (setRacesOptions) => {
 
         const response = axios.get('http://localhost:8000/api/races-list/')

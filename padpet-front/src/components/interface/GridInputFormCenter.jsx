@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { Grid } from '@mui/material';
 import TextField from '@mui/material/TextField';
+import InputMask from 'react-input-mask';
+
+
+// Input factory with grid
 
 export default function GridInputFormCenter(props)  {
   return (

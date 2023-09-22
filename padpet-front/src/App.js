@@ -12,6 +12,7 @@ import UserProfile from "./components/user/UserProfile";
 import PetRegister from "./components/pet/PetRegister";
 import LocalRegister from "./components/local/LocalRegister";
 import PetList from "./components/pet/PetList";
+import PetProfile from "./components/pet/PetProfile";
 
 function App() {
   //Rotas
@@ -26,6 +27,8 @@ function App() {
         <Route path="/pet" element={<PetList  />}/>
         <Route path="/register-local" element={<LocalRegister  />}/>
         <Route path="/user-profile" element={<UserProfile  />}/>
+        <Route path="/pet-profile" element={<PetProfile  />}/>
+
       </Routes>
     </Router>
   </>

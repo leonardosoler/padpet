@@ -1,15 +1,9 @@
-import Typography from '@mui/material/Typography';
 import React from "react";
-import GridInputFormCenter from '../interface/GridInputFormCenter';
-import GridSelectFormCenter from '../interface/GridSelectFormCenter';
-import ButtonSubmit from '../interface/ButtonSubmit';
 import Box from '@mui/material/Box';
 import { Card, CardContent } from '@mui/material';
-import axios from "axios";
 import { useEffect } from 'react';
 import Api from '../api/pet/PetApi'
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import TableList from '../interface/TableList';
+    import TableList from '../interface/TableList';
 
 function PetList() {
 
@@ -20,7 +14,7 @@ function PetList() {
         const pet_list = Api.PetListGet(setPetOptions)
     }, [])
 
-
+    let head_list = ['Id', 'Nome', 'Especie', 'Raça', 'Idade']
     return (
         <Box component="form"
             sx={{
@@ -29,7 +23,7 @@ function PetList() {
             <div className="UserRegister formLabel" align='center' >
                 <Card variant="outlined" sx={{ maxWidth: 1000, marginTop: 5 }}>
                     <CardContent>
-                        <TableList dados={petOptions} />
+                        <TableList dados={petOptions} header_list={head_list} />
                     </CardContent>
                 </Card>
             </div>
